@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <title>Množenje/Dijeljenje</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="manifest.json">
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+      </head>
+    <body>
+        <div id="menu" class="input-group">
+            <select class="form-select" id="gamemode" name="gamemode">
+              <option selected value="5">Do: 5</option>
+              <option value="6">Množenje/dijeljenje do: 6</option>
+              <option value="7">Množenje/dijeljenje do: 7</option>
+              <option value="8">Množenje/dijeljenje do: 8</option>
+              <option value="9">Množenje/dijeljenje do: 9</option>
+              <option value="10">Množenje/dijeljenje do: 10</option>
+            </select>
+          </div>        
+          <div id="task">
+              <span id="a"></span>  
+              <span id="oper"></span>  
+              <span id="b"></span>
+              <span>=</span>  
+              <input type="text" name="result" id="result">  
+          </div>
+          <div id="stats">
+            Zadataka: <div id="count"></div>
+            Vrijeme: <div id="time"></div>
+            Prosjek: <div id="avg"></div>
+          </div>
+          <script src="jquery-3.6.4.min.js"></script>
+          <script src="bootstrap.min.js"></script>
+          <script src="cookie.js"></script>
+          <script src="main.js"></script>
+   </body>
+</html>
