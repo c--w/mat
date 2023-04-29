@@ -6,7 +6,7 @@ var count;
 var start;
 function init() {
     start = Date.now();
-    gamemode = $("#gamemode").val();
+    gamemode = $("#gamemode").val(); 
     initGame();
     $("#gamemode").on("change", changeGame);
     $('#result').on("keyup", check);
