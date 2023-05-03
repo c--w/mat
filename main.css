@@ -21,6 +21,10 @@ body {
     margin-top: 3vh;
 }
 
+#task-text {
+    font-size: 2vmax;
+}
+
 input {
     display: inline-block;
     max-width: 6vmax;
