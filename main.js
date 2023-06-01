@@ -86,7 +86,7 @@ function initGame() {
         }
     }
     let text = Math.floor(Math.random() * 2);
-    //text = 1;
+    text = 0;
     if(text == 0) {
         $("#task-num").show();
         $("#task-text").hide();
