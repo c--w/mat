@@ -17,6 +17,7 @@ body {
 }
 
 #task {
+    font-family: math;
     align-self: center;
     font-size: 4vmax;
     margin-top: 3vh;
