@@ -56,9 +56,9 @@ function changeGame() {
 }
 
 function initGame() {
-    let a = Math.floor(Math.random() * 9) + 2;
+    let a = Math.floor(rand() * 9) + 2;
     let oper = Math.floor(Math.random() * 2)
-    let b = Math.floor(Math.random() * (gamemode - 1)) + 2;
+    let b = Math.floor(rand() * (gamemode - 1)) + 2;
     let r;
     if (opers[oper] == '*') {
         let i = Math.floor(Math.random() * 2);
@@ -105,6 +105,10 @@ function initGame() {
         $("#task-text").html(question);
     }
 
+}
+
+function rand() {
+    return Math.pow(Math.random(), 0.5);
 }
 
 function replaceAll(q, a, b, r) {
