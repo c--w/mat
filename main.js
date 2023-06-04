@@ -35,18 +35,20 @@ function init() {
 }
 
 function check(event) {
-    if (event.keyCode === 13) {
         let val = $("#result").val();
-        $('#result').val('');
         if (val != result) {
             return;
         }
+        updateStatus("Točno", 1000);
+        setTimeout(() => {
+            $('#result').val('');
+            initGame();
+        })
         count++;
         $('#count').text(count);
         $('#time').text(Math.floor((Date.now() - start) / 1000) + 's');
         $('#avg').text(Math.floor((Date.now() - start) / 1000 / count) + 's');
-        initGame();
-    }
+
 }
 function changeGame() {
     gamemode = $("#gamemode").val();
@@ -129,4 +131,60 @@ function replaceAll(q, a, b, r) {
 }
 function getRandomElem(a) {
     return a[Math.floor(Math.random()*a.length)]
+}
+
+var g_status_timeout;
+function updateStatus(text, timeout) {
+  $("status").show();
+  if (text == "") {
+    $("#status").empty();
+    /*
+    $("#status div").fadeTo(800, 0);
+    setTimeout(function () {
+      $("#status").empty();
+      g_status_timeout = null;
+    }, 800);
+    */
+  } else {
+    console.log("updateStatus", text);
+    if (text && typeof text === "object") text = JSON.stringify(text);
+    var div = $(
+      '<div class="alert" style="opacity:0; margin: 2px; position: relative; padding: 12px 12px 12px 30px">'
+    );
+    div.on("click", function () {
+      this.remove();
+    });
+    $("#status").append(div);
+    var div2 = $('<div style="border-left: 1px solid; padding-left: 10px;">');
+    div.append(div2);
+    div2.html(text);
+    div.fadeTo(200, 1);
+    if (timeout) {
+      var icon_elem = $(
+        '<i class="bi bi-info-square-fill" style="position: absolute; top: 50%; left: 6px; transform: translateY(-50%);"></i>'
+      );
+      div.append(icon_elem);
+      div.addClass("alert-success");
+      setTimeout(
+        function (div) {
+          div.fadeTo(800, 0);
+          setTimeout(
+            function (div) {
+              div.remove();
+            },
+            800,
+            div
+          );
+        },
+        timeout,
+        div
+      );
+    } else {
+      var icon_elem = $(
+        '<i class="bi bi-exclamation-octagon-fill" style="position: absolute; top: 50%; left: 6px; transform: translateY(-50%);"></i>'
+      );
+      div.append(icon_elem);
+      div.addClass("alert-warning");
+    }
+  }
 }
